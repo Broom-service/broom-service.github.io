@@ -1,2 +1,3 @@
 mkdocs-material
 mkdocs-panzoom-plugin
+mkdocs_puml

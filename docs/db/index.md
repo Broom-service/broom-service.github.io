@@ -8,76 +8,262 @@ DB provider je PostgreSQL.
 
 (schéma entit, EF Core má ve správě celou DB)
 
+DB schémata:
 
+* `broomsvc`:
+      * Users
+      * UserRoles
+      * UsersAudit
+* `broomsvc_apartments`
+      * Apartments
+      * Reservations
+      * ApartmentReservationLinks
+      * Cleanings
+      * ApartmentsAudits
+* `broomsvc_invoices`
+      * Suppliers
+      * BankAccounts
+      * Currency
+      * SuppliersBankAccounts
+      * Invoices
+      * Recepients
+      * Vats
+      * InvoiceVatSummaries
+      * InvoiceItems
+      * AmountTypes
+      * InvoiceNumberSeries
+      
+```puml
+@startuml
 
-```mermaid
-erDiagram
-
-Users {
-    int Id PK
-    string Email UK "NN"
-    string FirstName "NN"
-    string LastName "NN"
-    UserAccountState State "NN <br/> ENUM(New, Registered, Active, Inactive)"
+entity "Users" as Users {
+  *Id : int
+  --
+  *Email : string <<UK>>
+  *FirstName : string
+  *LastName : string
+  *State : UserAccountState
 }
 
-UserRoles {
-    int Id PK
-    int UserId FK "NN"
-    string Role "NN"
-    constraint _ "UK(UserId, Role)"
+enum UserAccountState {
+    New
+    Registered
+    Active
+    Inactive
 }
 
-Users ||--o{ UserRoles : ""
-
-UsersAudit {
-    int Id PK
-    int UserId "NN"
-    int ChangedBy "NN"
-    string Action "NN"
-    DateTime ChangeDate "NN"
+entity "UserRoles" as UserRoles {
+  *Id : int
+  --
+  *UserId : int <<FK>>
+  *Role : string
+  --
+  UK(UserId, Role)
 }
 
-Users ||--o{ UsersAudit : ""
-
-Apartments {
-    int Id PK
-    string Name "NN"
+entity "UsersAudit" as UsersAudit {
+  *Id : int
+  --
+  *UserId : int
+  *ChangedBy : int
+  *Action : string
+  *ChangeDate : DateTime
 }
 
-ApartmentReservationLinks {
-    int Id PK
-    int ApartmentId FK "NN"
-    string ReservationsICalUri "NN"
+entity "Reservations" as Reservations {
+  *Id : int
+  --
+  *ApartmentId : int <<FK>>
+  *StartDate : DateOnly
+  *EndDate : DateOnly
+  *ICalEventId : string
 }
 
-Reservations {
-    int Id PK
-    int ApartmentId FK "NN"
-    DateOnly StartDate "NN"
-    DateOnly EndDate "NN"
-    string ICalEventId "NN"
+entity "Cleanings" as Cleanings {
+  *Id : int
+  --
+  *ReservationId : int <<FK>>
+  *ApartmentId : int <<FK>>
+  *UserId : int <<FK>>
+  ConfirmedAt : DateTimeOffset
 }
 
-Cleanings {
-    int Id PK
-    int ReservationId FK "NN"
-    int AppartmentId FK "NN"
-    int UserId FK "NN"
-    DateTimeOffset ConfirmedAt
+entity "Apartments" as Apartments {
+  *Id : int
+  --
+  *Name : string
 }
 
-ApartmentsAudits {
-    int Id PK
-    int ApartmentId "NN"
-    int ChangedBy "NN"
-    string Action "NN"
-    DateTime ChangeDate "NN"
+entity "ApartmentReservationLinks" as ApartmentReservationLinks {
+  *Id : int
+  --
+  *ApartmentId : int <<FK>>
+  *ReservationsICalUri : string
 }
 
-Apartments ||--o{ Reservations : ""
-Apartments ||--o{ ApartmentsAudits : ""
-Apartments ||--o{ ApartmentReservationLinks: ""
-Reservations ||--|| Cleanings : ""
-Cleanings ||--|| Users : ""
+entity "ApartmentsAudits" as ApartmentsAudits {
+  *Id : int
+  --
+  *ApartmentId : int
+  *ChangedBy : int
+  *Action : string
+  *ChangeDate : DateTime
+}
+
+Users -- UserAccountState
+Users ||--o{ UserRoles
+Users ||--o{ UsersAudit : Subject (UserId)
+Users ||--o{ UsersAudit : Editor (ChangedBy)
+
+Apartments ||--o{ Reservations
+Apartments ||--o{ ApartmentsAudits
+Apartments ||--o{ ApartmentReservationLinks
+
+Reservations ||--|| Cleanings
+Users ||--|| Cleanings
+
+entity "Suppliers" as Suppliers {
+    *Id : int
+    --
+    *Name : string
+    *Address : string
+    *IdNumber : string (IČO)
+    VatNumber : string
+}
+
+entity "BankAccounts" as BankAccounts {
+    *Id : int
+    --
+    *BankName: string
+    *AccountNumber: string
+    *FriendlyName: string
+    *Currency: Currency
+    Iban: string
+    Swift: string
+}
+
+enum Currency {
+    CZK
+    EUR
+}
+
+entity "SuppliersBankAccounts" as SBA {
+    *SupplierId: int <<FK>>
+    *BankAccountId: int <<FK>>
+    --
+}
+
+BankAccounts -- Currency
+Suppliers ||--o{ SBA
+SBA }o--|| BankAccounts
+
+entity Invoices {
+    *Id : int
+    --
+    *CreatedByUserId: int <<FK>>
+    PaidByUserId: int <<FK>>
+    
+    Notes: string
+    *Paid: bool
+    PaidAt: DateTimeOffset
+    *InvoiceNumber: string
+    *IssuedAt: DateTimeOffset
+    *Currency: Currency
+    Total: decimal
+    TotalVat: decimal
+    TotalWithVat: decimal
+    QrCode: Array<byte>
+    
+    *SupplierId: int <<FK>>
+    *SupplierName: string
+    *SupplierAddress: string
+    *SupplierIdNumber: string
+    SupplierVat: string
+    *SupplierBankName: string
+    *SupplierBankAccountNumber: string
+    *SupplierBankAccountCurrency: Currency
+    SupplierBankIban: string
+    SupplierBankSwift: string
+    
+    *RecepientId: int <<FK>>
+    *RecepientName: string
+    RecepientNote: string
+    RecepientAddress: string
+    RecepientIdNumber: string
+    RecepientVatNumber: string
+    --
+    UK(SupplierId, RecepientId, InvoiceNumber)
+}
+
+entity Recepients {
+    *Id: int
+    --
+    *Name: string
+    Note: string
+    Address: string
+    IdNumber: string
+    VatNumber: string
+}
+
+entity Vats {
+    *Rate: decimal
+    *Currency
+}
+
+entity InvoiceVatSummaries {
+    *Id: int
+    *InvoiceId: int <<FK>>
+    *VatRate: decimal
+    --
+    *Total: decimal
+    *TotalWithVat: decimal
+    --
+}
+
+entity InvoiceItems {
+    *Id: int
+    --
+    *InvoiceId: int <<FK>>
+    *ItemNumber: int
+    *Name: string
+    *VatRate: decimal
+    *Price: decimal
+    *PriceWithVat: decimal
+    *Amount: decimal
+    *AmountType: string
+    --
+    UK(InvoiceId, ItemNumber)
+}
+
+entity AmountTypes {
+    *Id: int
+    --
+    *Type: string
+    --
+    UK(Type)
+}
+
+entity InvoiceNumberSeries {
+    *Id: int
+    --
+    *Name: string
+    *Template: string
+    *LastNumber: int
+    *LastUsageDate: DateOnly
+    --
+    UK(Name)
+}
+
+Invoices -- Currency
+Vats -- Currency
+Invoices ||--|{ InvoiceVatSummaries
+
+Invoices ||--o{ InvoiceItems
+InvoiceItems }o--|| AmountTypes
+Invoices ||--|| Suppliers
+Invoices ||--|| Recepients
+Invoices ||--|| Users : CreatedBy
+Invoices ||--o| Users : PaidBy
+
+@enduml
 ```

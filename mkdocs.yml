@@ -37,6 +37,9 @@ plugins:
   - panzoom:
       initial_zoom_level: 1.0
       full_screen: true
+  - plantuml:
+      puml_url: https://www.plantuml.com/plantuml/
+      num_workers: 8
 
 markdown_extensions:
   - admonition
@@ -65,3 +68,4 @@ nav:
       - db/index.md
     - Úklidy:
       - cleanings/index.md
+    - Faktury: invoices/index.md
