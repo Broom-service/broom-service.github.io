@@ -1,0 +1,757 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../cleanings/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>Faktury - BroomSvc Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/panzoom.css">
+    
+      <link rel="stylesheet" href="../assets/mkdocs_puml/puml.css">
+    
+      <link rel="stylesheet" href="../assets/mkdocs_puml/interaction.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  <meta name="panzoom-theme" content="material">
+<meta name="panzoom-data" content='{"selectors": [".mermaid", ".d2"], "initial_zoom_level": 1.0}'> </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#sprava-faktur" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="BroomSvc Docs" class="md-header__button md-logo" aria-label="BroomSvc Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            BroomSvc Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Faktury
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 2c-1.05 0-2.05.16-3 .46 4.06 1.27 7 5.04 7 9.54s-2.94 8.27-7 9.54c.95.3 1.95.46 3 .46a10 10 0 0 0 10-10A10 10 0 0 0 9 2"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Úvod
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../admin/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Admin panel
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../db/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Databáze
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../cleanings/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Úklidy
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Faktury
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="BroomSvc Docs" class="md-nav__button md-logo" aria-label="BroomSvc Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    BroomSvc Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Úvod
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../admin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Admin panel
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../db/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Databáze
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Databáze
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../cleanings/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Úklidy
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Úklidy
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Faktury
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Faktury
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#mindmapa-faktur" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mindmapa faktur
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#mindmapa-faktur" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mindmapa faktur
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="sprava-faktur">Správa faktur<a class="headerlink" href="#sprava-faktur" title="Permanent link">&para;</a></h1>
+<h2 id="mindmapa-faktur">Mindmapa faktur<a class="headerlink" href="#mindmapa-faktur" title="Permanent link">&para;</a></h2>
+<div class='puml-container'><div class="puml light" style=""><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" data-diagram-type="MINDMAP" height="1115px" preserveAspectRatio="xMidYMid meet" style="width:1022px;height:1115px;background:#FFFFFF;" version="1.1" viewBox="0 0 1022 1115" width="1022px" zoomAndPan="magnify" class="diagram"><defs/><g><rect fill="#F1F1F1" height="36.2969" rx="12.5" ry="12.5" style="stroke:#181818;stroke-width:1.5;" width="100.2813" x="10" y="538.6406"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="80.2813" x="20" y="561.6357">Dodavatelé</text><rect fill="#FFA500" height="36.2969" rx="12.5" ry="12.5" style="stroke:#181818;stroke-width:1.5;" width="65.4932" x="160.2813" y="426.0469"/><text fill="#010101" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="41.043" x="170.2813" y="449.042">Přidat</text><path d="M110.2813,556.7891 L120.2813,556.7891 C135.2813,556.7891 135.2813,444.1953 150.2813,444.1953 L160.2813,444.1953" fill="none" style="stroke:#181818;stroke-width:1;"/><rect fill="#FFA500" height="36.2969" rx="12.5" ry="12.5" style="stroke:#181818;stroke-width:1.5;" width="76.9707" x="160.2813" y="482.3438"/><text fill="#010101" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="52.5205" x="170.2813" y="505.3389">Smazat</text><path d="M110.2813,556.7891 L120.2813,556.7891 C135.2813,556.7891 135.2813,500.4922 150.2813,500.4922 L160.2813,500.4922" fill="none" style="stroke:#181818;stroke-width:1;"/><rect fill="#F1F1F1" height="36.2969" rx="12.5" ry="12.5" style="stroke:#181818;stroke-width:1.5;" width="91.668" x="160.2813" y="538.6406"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="71.668" x="170.2813" y="561.6357">Dodavatel</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="43.8184" x="304.9492" y="34.5498">Jméno</text><path d="M251.9492,556.7891 L261.9492,556.7891 C276.9492,556.7891 276.9492,29.7031 291.9492,29.7031 L301.9492,29.7031" fill="none" style="stroke:#181818;stroke-width:1;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="48.7061" x="304.9492" y="52.8467">Adresa</text><path d="M251.9492,556.7891 L261.9492,556.7891 C276.9492,556.7891 276.9492,48 291.9492,48 L301.9492,48" fill="none" style="stroke:#181818;stroke-width:1;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="13.9043" x="304.9492" y="71.1436">IČ</text><path d="M251.9492,556.7891 L261.9492,556.7891 C276.9492,556.7891 276.9492,66.2969 291.9492,66.2969 L301.9492,66.2969" fill="none" style="stroke:#181818;stroke-width:1;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="32.1152" x="304.9492" y="89.4404">?DIČ</text><path d="M251.9492,556.7891 L261.9492,556.7891 C276.9492,556.7891 276.9492,84.5938 291.9492,84.5938 L301.9492,84.5938" fill="none" style="stroke:#181818;stroke-width:1;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="108.0693" x="304.9492" y="107.7373">Bankovní údaje</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="90.4805" x="466.0186" y="23.9951">Název banky</text><path d="M413.0186,102.8906 L423.0186,102.8906 C438.0186,102.8906 438.0186,19.1484 453.0186,19.1484 L463.0186,19.1484" fill="none" style="stroke:#181818;stroke-width:1;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="68.7969" x="466.0186" y="42.292">Číslo účtu</text><path d="M413.0186,102.8906 L423.0186,102.8906 C438.0186,102.8906 438.0186,37.4453 453.0186,37.4453 L463.0186,37.4453" fill="none" style="stroke:#181818;stroke-width:1;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="33.7832" x="466.0186" y="60.5889">IBAN</text><path d="M413.0186,102.8906 L423.0186,102.8906 C438.0186,102.8906 438.0186,55.7422 453.0186,55.7422 L463.0186,55.7422" fill="none" style="stroke:#181818;stroke-width:1;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="43.4629" x="466.0186" y="78.8857">SWIFT</text><path d="M413.0186,102.8906 L423.0186,102.8906 C438.0186,102.8906 438.0186,74.0391 453.0186,74.0391 L463.0186,74.0391" fill="none" style="stroke:#181818;stroke-width:1;"/><rect fill="#FFA500" height="36.2969" rx="12.5" ry="12.5" style="stroke:#181818;stroke-width:1.5;" width="75.583" x="463.0186" y="93.1875"/><text fill="#010101" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="51.1328" x="473.0186" y="116.1826">Upravit</text><path d="M413.0186,102.8906 L423.0186,102.8906 C438.0186,102.8906 438.0186,111.3359 453.0186,111.3359 L463.0186,111.3359" fill="none" style="stroke:#181818;stroke-width:1;"/><rect fill="#FFA500" height="36.2969" rx="12.5" ry="12.5" style="stroke:#181818;stroke-width:1.5;" width="76.9707" x="463.0186" y="149.4844"/><text fill="#010101" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="52.5205" x="473.0186" y="172.4795">Smazat</text><path d="M413.0186,102.8906 L423.0186,102.8906 C438.0186,102.8906 438.0186,167.6328 453.0186,167.6328 L463.0186,167.6328" fill="none" style="stroke:#181818;stroke-width:1;"/><path d="M251.9492,556.7891 L261.9492,556.7891 C276.9492,556.7891 276.9492,102.8906 291.9492,102.8906 L301.9492,102.8906" fill="none" style="stroke:#181818;stroke-width:1;"/><rect fill="#FFA500" height="36.2969" rx="12.5" ry="12.5" style="stroke:#181818;stroke-width:1.5;" width="75.583" x="301.9492" y="122.0391"/><text fill="#010101" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="51.1328" x="311.9492" y="145.0342">Upravit</text><path d="M251.9492,556.7891 L261.9492,556.7891 C276.9492,556.7891 276.9492,140.1875 291.9492,140.1875 L301.9492,140.1875" fill="none" style="stroke:#181818;stroke-width:1;"/><rect fill="#F1F1F1" height="36.2969" rx="12.5" ry="12.5" style="stroke:#181818;stroke-width:1.5;" width="73.1426" x="301.9492" y="631.5313"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="53.1426" x="311.9492" y="654.5264">Faktury</text><rect fill="#FFA500" height="36.2969" rx="12.5" ry="12.5" style="stroke:#181818;stroke-width:1.5;" width="79.7871" x="425.0918" y="518.9375"/><text fill="#010101" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="55.3369" x="435.0918" y="541.9326">Vytvořit</text><path d="M375.0918,649.6797 L385.0918,649.6797 C400.0918,649.6797 400.0918,537.0859 415.0918,537.0859 L425.0918,537.0859" fill="none" style="stroke:#181818;stroke-width:1;"/><rect fill="#FFA500" height="36.2969" rx="12.5" ry="12.5" style="stroke:#181818;stroke-width:1.5;" width="76.9707" x="425.0918" y="575.2344"/><text fill="#010101" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="52.5205" x="435.0918" y="598.2295">Smazat</text><path d="M375.0918,649.6797 L385.0918,649.6797 C400.0918,649.6797 400.0918,593.3828 415.0918,593.3828 L425.0918,593.3828" fill="none" style="stroke:#181818;stroke-width:1;"/><rect fill="#F1F1F1" height="36.2969" rx="12.5" ry="12.5" style="stroke:#181818;stroke-width:1.5;" width="73.4365" x="425.0918" y="631.5313"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="53.4365" x="435.0918" y="654.5264">Faktura</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="79.5635" x="551.5283" y="209.7764">?Poznámka</text><path d="M498.5283,649.6797 L508.5283,649.6797 C523.5283,649.6797 523.5283,204.9297 538.5283,204.9297 L548.5283,204.9297" fill="none" style="stroke:#181818;stroke-width:1;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="66.8555" x="551.5283" y="228.0732">Uhrazeno</text><text fill="#008000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="27.0156" x="675.834" y="218.9248">Ano</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="101.0625" x="760.2998" y="218.9248">Datum úhrady</text><path d="M707.2998,214.0781 L717.2998,214.0781 C732.2998,214.0781 732.2998,214.0781 747.2998,214.0781 L757.2998,214.0781" fill="none" style="stroke:#181818;stroke-width:1;"/><path d="M622.834,223.2266 L632.834,223.2266 C647.834,223.2266 647.834,214.0781 662.834,214.0781 L672.834,214.0781" fill="none" style="stroke:#181818;stroke-width:1;"/><text fill="#FF0000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="19.0859" x="675.834" y="237.2217">Ne</text><path d="M622.834,223.2266 L632.834,223.2266 C647.834,223.2266 647.834,232.375 662.834,232.375 L672.834,232.375" fill="none" style="stroke:#181818;stroke-width:1;"/><path d="M498.5283,649.6797 L508.5283,649.6797 C523.5283,649.6797 523.5283,223.2266 538.5283,223.2266 L548.5283,223.2266" fill="none" style="stroke:#181818;stroke-width:1;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="87.8828" x="551.5283" y="301.9639">Číslo faktury</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="47.3457" x="692.4111" y="255.5186">?Prefix</text><path d="M639.4111,297.1172 L649.4111,297.1172 C664.4111,297.1172 664.4111,250.6719 679.4111,250.6719 L689.4111,250.6719" fill="none" style="stroke:#181818;stroke-width:1;"/><rect fill="#F1F1F1" height="36.2969" rx="12.5" ry="12.5" style="stroke:#181818;stroke-width:1.5;" width="107.165" x="689.4111" y="269.8203"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="87.165" x="699.4111" y="292.8154">Číselná řada</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="161.3486" x="849.5762" y="283.667">Předdefinované funkce</text><path d="M796.5762,287.9688 L806.5762,287.9688 C821.5762,287.9688 821.5762,278.8203 836.5762,278.8203 L846.5762,278.8203" fill="none" style="stroke:#181818;stroke-width:1;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="106.5654" x="849.5762" y="301.9639">Vlastní funkce?</text><path d="M796.5762,287.9688 L806.5762,287.9688 C821.5762,287.9688 821.5762,297.1172 836.5762,297.1172 L846.5762,297.1172" fill="none" style="stroke:#181818;stroke-width:1;"/><path d="M639.4111,297.1172 L649.4111,297.1172 C664.4111,297.1172 664.4111,287.9688 679.4111,287.9688 L689.4111,287.9688" fill="none" style="stroke:#181818;stroke-width:1;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="101.4795" x="692.4111" y="330.1123">Pořadové číslo</text><path d="M639.4111,297.1172 L649.4111,297.1172 C664.4111,297.1172 664.4111,325.2656 679.4111,325.2656 L689.4111,325.2656" fill="none" style="stroke:#181818;stroke-width:1;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="47.2227" x="692.4111" y="348.4092">?Suffix</text><path d="M639.4111,297.1172 L649.4111,297.1172 C664.4111,297.1172 664.4111,343.5625 679.4111,343.5625 L689.4111,343.5625" fill="none" style="stroke:#181818;stroke-width:1;"/><path d="M498.5283,649.6797 L508.5283,649.6797 C523.5283,649.6797 523.5283,297.1172 538.5283,297.1172 L548.5283,297.1172" fill="none" style="stroke:#181818;stroke-width:1;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="80.5752" x="551.5283" y="320.2607">$Dodavatel</text><path d="M498.5283,649.6797 L508.5283,649.6797 C523.5283,649.6797 523.5283,315.4141 538.5283,315.4141 L548.5283,315.4141" fill="none" style="stroke:#181818;stroke-width:1;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="119.4033" x="551.5283" y="366.7061">Datum vystavení</text><path d="M498.5283,649.6797 L508.5283,649.6797 C523.5283,649.6797 523.5283,361.8594 538.5283,361.8594 L548.5283,361.8594" fill="none" style="stroke:#181818;stroke-width:1;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="62.1113" x="551.5283" y="385.0029">$Položky</text><path d="M498.5283,649.6797 L508.5283,649.6797 C523.5283,649.6797 523.5283,380.1563 538.5283,380.1563 L548.5283,380.1563" fill="none" style="stroke:#181818;stroke-width:1;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="78.6406" x="551.5283" y="403.2998">$Odběratel</text><path d="M498.5283,649.6797 L508.5283,649.6797 C523.5283,649.6797 523.5283,398.4531 538.5283,398.4531 L548.5283,398.4531" fill="none" style="stroke:#181818;stroke-width:1;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="125.1455" x="551.5283" y="421.5967">Rekapitulace DPH</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="76.4805" x="729.6738" y="394.1514">Sazba DPH</text><path d="M676.6738,416.75 L686.6738,416.75 C701.6738,416.75 701.6738,389.3047 716.6738,389.3047 L726.6738,389.3047" fill="none" style="stroke:#181818;stroke-width:1;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="47.6328" x="729.6738" y="412.4482">Základ</text><path d="M676.6738,416.75 L686.6738,416.75 C701.6738,416.75 701.6738,407.6016 716.6738,407.6016 L726.6738,407.6016" fill="none" style="stroke:#181818;stroke-width:1;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="29.75" x="729.6738" y="430.7451">DPH</text><path d="M676.6738,416.75 L686.6738,416.75 C701.6738,416.75 701.6738,425.8984 716.6738,425.8984 L726.6738,425.8984" fill="none" style="stroke:#181818;stroke-width:1;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="52.6367" x="729.6738" y="449.042">Celkem</text><path d="M676.6738,416.75 L686.6738,416.75 C701.6738,416.75 701.6738,444.1953 716.6738,444.1953 L726.6738,444.1953" fill="none" style="stroke:#181818;stroke-width:1;"/><path d="M498.5283,649.6797 L508.5283,649.6797 C523.5283,649.6797 523.5283,416.75 538.5283,416.75 L548.5283,416.75" fill="none" style="stroke:#181818;stroke-width:1;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="99.9551" x="551.5283" y="485.6357">Platební údaje</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="120.8184" x="704.4834" y="467.3389">Variabilní symbol</text><path d="M651.4834,480.7891 L661.4834,480.7891 C676.4834,480.7891 676.4834,462.4922 691.4834,462.4922 L701.4834,462.4922" fill="none" style="stroke:#181818;stroke-width:1;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="105.7998" x="704.4834" y="485.6357">Způsob úhrady</text><path d="M651.4834,480.7891 L661.4834,480.7891 C676.4834,480.7891 676.4834,480.7891 691.4834,480.7891 L701.4834,480.7891" fill="none" style="stroke:#181818;stroke-width:1;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="50.7568" x="704.4834" y="503.9326">QR kód</text><path d="M651.4834,480.7891 L661.4834,480.7891 C676.4834,480.7891 676.4834,499.0859 691.4834,499.0859 L701.4834,499.0859" fill="none" style="stroke:#181818;stroke-width:1;"/><path d="M498.5283,649.6797 L508.5283,649.6797 C523.5283,649.6797 523.5283,480.7891 538.5283,480.7891 L548.5283,480.7891" fill="none" style="stroke:#181818;stroke-width:1;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="48.125" x="551.5283" y="531.3779">Součet</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="38.1445" x="652.6533" y="522.2295">Měna</text><path d="M599.6533,526.5313 L609.6533,526.5313 C624.6533,526.5313 624.6533,517.3828 639.6533,517.3828 L649.6533,517.3828" fill="none" style="stroke:#181818;stroke-width:1;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="47.8242" x="652.6533" y="540.5264">Částka</text><path d="M599.6533,526.5313 L609.6533,526.5313 C624.6533,526.5313 624.6533,535.6797 639.6533,535.6797 L649.6533,535.6797" fill="none" style="stroke:#181818;stroke-width:1;"/><path d="M498.5283,649.6797 L508.5283,649.6797 C523.5283,649.6797 523.5283,526.5313 538.5283,526.5313 L548.5283,526.5313" fill="none" style="stroke:#181818;stroke-width:1;"/><rect fill="#FFA500" height="36.2969" rx="12.5" ry="12.5" style="stroke:#181818;stroke-width:1.5;" width="51.7256" x="548.5283" y="545.6797"/><text fill="#010101" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="27.2754" x="558.5283" y="568.6748">PDF</text><path d="M498.5283,649.6797 L508.5283,649.6797 C523.5283,649.6797 523.5283,563.8281 538.5283,563.8281 L548.5283,563.8281" fill="none" style="stroke:#181818;stroke-width:1;"/><rect fill="#FFA500" height="36.2969" rx="12.5" ry="12.5" style="stroke:#181818;stroke-width:1.5;" width="76.1709" x="548.5283" y="601.9766"/><text fill="#010101" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="51.7207" x="558.5283" y="624.9717">Uhradit</text><path d="M498.5283,649.6797 L508.5283,649.6797 C523.5283,649.6797 523.5283,620.125 538.5283,620.125 L548.5283,620.125" fill="none" style="stroke:#181818;stroke-width:1;"/><rect fill="#FFA500" height="36.2969" rx="12.5" ry="12.5" style="stroke:#181818;stroke-width:1.5;" width="75.583" x="548.5283" y="658.2734"/><text fill="#010101" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="51.1328" x="558.5283" y="681.2686">Upravit</text><path d="M498.5283,649.6797 L508.5283,649.6797 C523.5283,649.6797 523.5283,676.4219 538.5283,676.4219 L548.5283,676.4219" fill="none" style="stroke:#181818;stroke-width:1;"/><rect fill="#FFA500" height="36.2969" rx="12.5" ry="12.5" style="stroke:#181818;stroke-width:1.5;" width="149.7461" x="548.5283" y="714.5703"/><text fill="#010101" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="125.2959" x="558.5283" y="737.5654">Kopírovat položky</text><path d="M498.5283,649.6797 L508.5283,649.6797 C523.5283,649.6797 523.5283,732.7188 538.5283,732.7188 L548.5283,732.7188" fill="none" style="stroke:#181818;stroke-width:1;"/><rect fill="#F1F1F1" height="36.2969" rx="12.5" ry="12.5" style="stroke:#181818;stroke-width:1.5;" width="89.7334" x="548.5283" y="788.4609"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="69.7334" x="558.5283" y="811.4561">Odběratel</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="43.8184" x="691.2617" y="774.8623">Jméno</text><path d="M638.2617,806.6094 L648.2617,806.6094 C663.2617,806.6094 663.2617,770.0156 678.2617,770.0156 L688.2617,770.0156" fill="none" style="stroke:#181818;stroke-width:1;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="79.5635" x="691.2617" y="793.1592">?Poznámka</text><path d="M638.2617,806.6094 L648.2617,806.6094 C663.2617,806.6094 663.2617,788.3125 678.2617,788.3125 L688.2617,788.3125" fill="none" style="stroke:#181818;stroke-width:1;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="56.1367" x="691.2617" y="811.4561">?Adresa</text><path d="M638.2617,806.6094 L648.2617,806.6094 C663.2617,806.6094 663.2617,806.6094 678.2617,806.6094 L688.2617,806.6094" fill="none" style="stroke:#181818;stroke-width:1;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="21.335" x="691.2617" y="829.7529">?IČ</text><path d="M638.2617,806.6094 L648.2617,806.6094 C663.2617,806.6094 663.2617,824.9063 678.2617,824.9063 L688.2617,824.9063" fill="none" style="stroke:#181818;stroke-width:1;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="32.1152" x="691.2617" y="848.0498">?DIČ</text><path d="M638.2617,806.6094 L648.2617,806.6094 C663.2617,806.6094 663.2617,843.2031 678.2617,843.2031 L688.2617,843.2031" fill="none" style="stroke:#181818;stroke-width:1;"/><path d="M498.5283,649.6797 L508.5283,649.6797 C523.5283,649.6797 523.5283,806.6094 538.5283,806.6094 L548.5283,806.6094" fill="none" style="stroke:#181818;stroke-width:1;"/><rect fill="#F1F1F1" height="36.2969" rx="12.5" ry="12.5" style="stroke:#181818;stroke-width:1.5;" width="73.2041" x="548.5283" y="959.8164"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="53.2041" x="558.5283" y="982.8115">Položky</text><rect fill="#FFA500" height="36.2969" rx="12.5" ry="12.5" style="stroke:#181818;stroke-width:1.5;" width="65.4932" x="671.7324" y="862.3516"/><text fill="#010101" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="41.043" x="681.7324" y="885.3467">Přidat</text><path d="M621.7324,977.9648 L631.7324,977.9648 C646.7324,977.9648 646.7324,880.5 661.7324,880.5 L671.7324,880.5" fill="none" style="stroke:#181818;stroke-width:1;"/><rect fill="#FFA500" height="36.2969" rx="12.5" ry="12.5" style="stroke:#181818;stroke-width:1.5;" width="81.6807" x="671.7324" y="918.6484"/><text fill="#010101" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="57.2305" x="681.7324" y="941.6436">Odebrat</text><path d="M621.7324,977.9648 L631.7324,977.9648 C646.7324,977.9648 646.7324,936.7969 661.7324,936.7969 L671.7324,936.7969" fill="none" style="stroke:#181818;stroke-width:1;"/><rect fill="#F1F1F1" height="36.2969" rx="12.5" ry="12.5" style="stroke:#181818;stroke-width:1.5;" width="73.498" x="671.7324" y="974.9453"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="53.498" x="681.7324" y="997.9404">Položka</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="101.4795" x="798.2305" y="896.6045">Pořadové číslo</text><path d="M745.2305,993.0938 L755.2305,993.0938 C770.2305,993.0938 770.2305,891.7578 785.2305,891.7578 L795.2305,891.7578" fill="none" style="stroke:#181818;stroke-width:1;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="43.2988" x="798.2305" y="914.9014">Název</text><path d="M745.2305,993.0938 L755.2305,993.0938 C770.2305,993.0938 770.2305,910.0547 785.2305,910.0547 L795.2305,910.0547" fill="none" style="stroke:#181818;stroke-width:1;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="61.8242" x="798.2305" y="933.1982">Množství</text><path d="M745.2305,993.0938 L755.2305,993.0938 C770.2305,993.0938 770.2305,928.3516 785.2305,928.3516 L795.2305,928.3516" fill="none" style="stroke:#181818;stroke-width:1;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="144.7646" x="798.2305" y="951.4951">Množstevní jednotka</text><path d="M745.2305,993.0938 L755.2305,993.0938 C770.2305,993.0938 770.2305,946.6484 785.2305,946.6484 L795.2305,946.6484" fill="none" style="stroke:#181818;stroke-width:1;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="116.3066" x="798.2305" y="969.792">Jednotková cena</text><path d="M745.2305,993.0938 L755.2305,993.0938 C770.2305,993.0938 770.2305,964.9453 785.2305,964.9453 L795.2305,964.9453" fill="none" style="stroke:#181818;stroke-width:1;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="94.0283" x="798.2305" y="988.0889">Celková cena</text><path d="M745.2305,993.0938 L755.2305,993.0938 C770.2305,993.0938 770.2305,983.2422 785.2305,983.2422 L795.2305,983.2422" fill="none" style="stroke:#181818;stroke-width:1;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="29.75" x="798.2305" y="1006.3857">DPH</text><path d="M745.2305,993.0938 L755.2305,993.0938 C770.2305,993.0938 770.2305,1001.5391 785.2305,1001.5391 L795.2305,1001.5391" fill="none" style="stroke:#181818;stroke-width:1;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="139.9727" x="798.2305" y="1024.6826">Celková cena s DPH</text><path d="M745.2305,993.0938 L755.2305,993.0938 C770.2305,993.0938 770.2305,1019.8359 785.2305,1019.8359 L795.2305,1019.8359" fill="none" style="stroke:#181818;stroke-width:1;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="38.1445" x="798.2305" y="1042.9795">Měna</text><path d="M745.2305,993.0938 L755.2305,993.0938 C770.2305,993.0938 770.2305,1038.1328 785.2305,1038.1328 L795.2305,1038.1328" fill="none" style="stroke:#181818;stroke-width:1;"/><rect fill="#FFA500" height="36.2969" rx="12.5" ry="12.5" style="stroke:#181818;stroke-width:1.5;" width="75.583" x="795.2305" y="1057.2813"/><text fill="#010101" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="51.1328" x="805.2305" y="1080.2764">Upravit</text><path d="M745.2305,993.0938 L755.2305,993.0938 C770.2305,993.0938 770.2305,1075.4297 785.2305,1075.4297 L795.2305,1075.4297" fill="none" style="stroke:#181818;stroke-width:1;"/><path d="M621.7324,977.9648 L631.7324,977.9648 C646.7324,977.9648 646.7324,993.0938 661.7324,993.0938 L671.7324,993.0938" fill="none" style="stroke:#181818;stroke-width:1;"/><path d="M498.5283,649.6797 L508.5283,649.6797 C523.5283,649.6797 523.5283,977.9648 538.5283,977.9648 L548.5283,977.9648" fill="none" style="stroke:#181818;stroke-width:1;"/><path d="M375.0918,649.6797 L385.0918,649.6797 C400.0918,649.6797 400.0918,649.6797 415.0918,649.6797 L425.0918,649.6797" fill="none" style="stroke:#181818;stroke-width:1;"/><path d="M251.9492,556.7891 L261.9492,556.7891 C276.9492,556.7891 276.9492,649.6797 291.9492,649.6797 L301.9492,649.6797" fill="none" style="stroke:#181818;stroke-width:1;"/><path d="M110.2813,556.7891 L120.2813,556.7891 C135.2813,556.7891 135.2813,556.7891 150.2813,556.7891 L160.2813,556.7891" fill="none" style="stroke:#181818;stroke-width:1;"/></g></svg></div><div class="puml dark" style=""><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" data-diagram-type="MINDMAP" height="1115px" preserveAspectRatio="xMidYMid meet" style="width:1022px;height:1115px;background:#FFFFFF;" version="1.1" viewBox="0 0 1022 1115" width="1022px" zoomAndPan="magnify" class="diagram"><defs/><g><rect fill="#F1F1F1" height="36.2969" rx="12.5" ry="12.5" style="stroke:#181818;stroke-width:1.5;" width="100.2813" x="10" y="538.6406"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="80.2813" x="20" y="561.6357">Dodavatelé</text><rect fill="#FFA500" height="36.2969" rx="12.5" ry="12.5" style="stroke:#181818;stroke-width:1.5;" width="65.4932" x="160.2813" y="426.0469"/><text fill="#010101" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="41.043" x="170.2813" y="449.042">Přidat</text><path d="M110.2813,556.7891 L120.2813,556.7891 C135.2813,556.7891 135.2813,444.1953 150.2813,444.1953 L160.2813,444.1953" fill="none" style="stroke:#181818;stroke-width:1;"/><rect fill="#FFA500" height="36.2969" rx="12.5" ry="12.5" style="stroke:#181818;stroke-width:1.5;" width="76.9707" x="160.2813" y="482.3438"/><text fill="#010101" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="52.5205" x="170.2813" y="505.3389">Smazat</text><path d="M110.2813,556.7891 L120.2813,556.7891 C135.2813,556.7891 135.2813,500.4922 150.2813,500.4922 L160.2813,500.4922" fill="none" style="stroke:#181818;stroke-width:1;"/><rect fill="#F1F1F1" height="36.2969" rx="12.5" ry="12.5" style="stroke:#181818;stroke-width:1.5;" width="91.668" x="160.2813" y="538.6406"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="71.668" x="170.2813" y="561.6357">Dodavatel</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="43.8184" x="304.9492" y="34.5498">Jméno</text><path d="M251.9492,556.7891 L261.9492,556.7891 C276.9492,556.7891 276.9492,29.7031 291.9492,29.7031 L301.9492,29.7031" fill="none" style="stroke:#181818;stroke-width:1;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="48.7061" x="304.9492" y="52.8467">Adresa</text><path d="M251.9492,556.7891 L261.9492,556.7891 C276.9492,556.7891 276.9492,48 291.9492,48 L301.9492,48" fill="none" style="stroke:#181818;stroke-width:1;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="13.9043" x="304.9492" y="71.1436">IČ</text><path d="M251.9492,556.7891 L261.9492,556.7891 C276.9492,556.7891 276.9492,66.2969 291.9492,66.2969 L301.9492,66.2969" fill="none" style="stroke:#181818;stroke-width:1;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="32.1152" x="304.9492" y="89.4404">?DIČ</text><path d="M251.9492,556.7891 L261.9492,556.7891 C276.9492,556.7891 276.9492,84.5938 291.9492,84.5938 L301.9492,84.5938" fill="none" style="stroke:#181818;stroke-width:1;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="108.0693" x="304.9492" y="107.7373">Bankovní údaje</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="90.4805" x="466.0186" y="23.9951">Název banky</text><path d="M413.0186,102.8906 L423.0186,102.8906 C438.0186,102.8906 438.0186,19.1484 453.0186,19.1484 L463.0186,19.1484" fill="none" style="stroke:#181818;stroke-width:1;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="68.7969" x="466.0186" y="42.292">Číslo účtu</text><path d="M413.0186,102.8906 L423.0186,102.8906 C438.0186,102.8906 438.0186,37.4453 453.0186,37.4453 L463.0186,37.4453" fill="none" style="stroke:#181818;stroke-width:1;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="33.7832" x="466.0186" y="60.5889">IBAN</text><path d="M413.0186,102.8906 L423.0186,102.8906 C438.0186,102.8906 438.0186,55.7422 453.0186,55.7422 L463.0186,55.7422" fill="none" style="stroke:#181818;stroke-width:1;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="43.4629" x="466.0186" y="78.8857">SWIFT</text><path d="M413.0186,102.8906 L423.0186,102.8906 C438.0186,102.8906 438.0186,74.0391 453.0186,74.0391 L463.0186,74.0391" fill="none" style="stroke:#181818;stroke-width:1;"/><rect fill="#FFA500" height="36.2969" rx="12.5" ry="12.5" style="stroke:#181818;stroke-width:1.5;" width="75.583" x="463.0186" y="93.1875"/><text fill="#010101" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="51.1328" x="473.0186" y="116.1826">Upravit</text><path d="M413.0186,102.8906 L423.0186,102.8906 C438.0186,102.8906 438.0186,111.3359 453.0186,111.3359 L463.0186,111.3359" fill="none" style="stroke:#181818;stroke-width:1;"/><rect fill="#FFA500" height="36.2969" rx="12.5" ry="12.5" style="stroke:#181818;stroke-width:1.5;" width="76.9707" x="463.0186" y="149.4844"/><text fill="#010101" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="52.5205" x="473.0186" y="172.4795">Smazat</text><path d="M413.0186,102.8906 L423.0186,102.8906 C438.0186,102.8906 438.0186,167.6328 453.0186,167.6328 L463.0186,167.6328" fill="none" style="stroke:#181818;stroke-width:1;"/><path d="M251.9492,556.7891 L261.9492,556.7891 C276.9492,556.7891 276.9492,102.8906 291.9492,102.8906 L301.9492,102.8906" fill="none" style="stroke:#181818;stroke-width:1;"/><rect fill="#FFA500" height="36.2969" rx="12.5" ry="12.5" style="stroke:#181818;stroke-width:1.5;" width="75.583" x="301.9492" y="122.0391"/><text fill="#010101" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="51.1328" x="311.9492" y="145.0342">Upravit</text><path d="M251.9492,556.7891 L261.9492,556.7891 C276.9492,556.7891 276.9492,140.1875 291.9492,140.1875 L301.9492,140.1875" fill="none" style="stroke:#181818;stroke-width:1;"/><rect fill="#F1F1F1" height="36.2969" rx="12.5" ry="12.5" style="stroke:#181818;stroke-width:1.5;" width="73.1426" x="301.9492" y="631.5313"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="53.1426" x="311.9492" y="654.5264">Faktury</text><rect fill="#FFA500" height="36.2969" rx="12.5" ry="12.5" style="stroke:#181818;stroke-width:1.5;" width="79.7871" x="425.0918" y="518.9375"/><text fill="#010101" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="55.3369" x="435.0918" y="541.9326">Vytvořit</text><path d="M375.0918,649.6797 L385.0918,649.6797 C400.0918,649.6797 400.0918,537.0859 415.0918,537.0859 L425.0918,537.0859" fill="none" style="stroke:#181818;stroke-width:1;"/><rect fill="#FFA500" height="36.2969" rx="12.5" ry="12.5" style="stroke:#181818;stroke-width:1.5;" width="76.9707" x="425.0918" y="575.2344"/><text fill="#010101" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="52.5205" x="435.0918" y="598.2295">Smazat</text><path d="M375.0918,649.6797 L385.0918,649.6797 C400.0918,649.6797 400.0918,593.3828 415.0918,593.3828 L425.0918,593.3828" fill="none" style="stroke:#181818;stroke-width:1;"/><rect fill="#F1F1F1" height="36.2969" rx="12.5" ry="12.5" style="stroke:#181818;stroke-width:1.5;" width="73.4365" x="425.0918" y="631.5313"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="53.4365" x="435.0918" y="654.5264">Faktura</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="79.5635" x="551.5283" y="209.7764">?Poznámka</text><path d="M498.5283,649.6797 L508.5283,649.6797 C523.5283,649.6797 523.5283,204.9297 538.5283,204.9297 L548.5283,204.9297" fill="none" style="stroke:#181818;stroke-width:1;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="66.8555" x="551.5283" y="228.0732">Uhrazeno</text><text fill="#008000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="27.0156" x="675.834" y="218.9248">Ano</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="101.0625" x="760.2998" y="218.9248">Datum úhrady</text><path d="M707.2998,214.0781 L717.2998,214.0781 C732.2998,214.0781 732.2998,214.0781 747.2998,214.0781 L757.2998,214.0781" fill="none" style="stroke:#181818;stroke-width:1;"/><path d="M622.834,223.2266 L632.834,223.2266 C647.834,223.2266 647.834,214.0781 662.834,214.0781 L672.834,214.0781" fill="none" style="stroke:#181818;stroke-width:1;"/><text fill="#FF0000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="19.0859" x="675.834" y="237.2217">Ne</text><path d="M622.834,223.2266 L632.834,223.2266 C647.834,223.2266 647.834,232.375 662.834,232.375 L672.834,232.375" fill="none" style="stroke:#181818;stroke-width:1;"/><path d="M498.5283,649.6797 L508.5283,649.6797 C523.5283,649.6797 523.5283,223.2266 538.5283,223.2266 L548.5283,223.2266" fill="none" style="stroke:#181818;stroke-width:1;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="87.8828" x="551.5283" y="301.9639">Číslo faktury</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="47.3457" x="692.4111" y="255.5186">?Prefix</text><path d="M639.4111,297.1172 L649.4111,297.1172 C664.4111,297.1172 664.4111,250.6719 679.4111,250.6719 L689.4111,250.6719" fill="none" style="stroke:#181818;stroke-width:1;"/><rect fill="#F1F1F1" height="36.2969" rx="12.5" ry="12.5" style="stroke:#181818;stroke-width:1.5;" width="107.165" x="689.4111" y="269.8203"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="87.165" x="699.4111" y="292.8154">Číselná řada</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="161.3486" x="849.5762" y="283.667">Předdefinované funkce</text><path d="M796.5762,287.9688 L806.5762,287.9688 C821.5762,287.9688 821.5762,278.8203 836.5762,278.8203 L846.5762,278.8203" fill="none" style="stroke:#181818;stroke-width:1;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="106.5654" x="849.5762" y="301.9639">Vlastní funkce?</text><path d="M796.5762,287.9688 L806.5762,287.9688 C821.5762,287.9688 821.5762,297.1172 836.5762,297.1172 L846.5762,297.1172" fill="none" style="stroke:#181818;stroke-width:1;"/><path d="M639.4111,297.1172 L649.4111,297.1172 C664.4111,297.1172 664.4111,287.9688 679.4111,287.9688 L689.4111,287.9688" fill="none" style="stroke:#181818;stroke-width:1;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="101.4795" x="692.4111" y="330.1123">Pořadové číslo</text><path d="M639.4111,297.1172 L649.4111,297.1172 C664.4111,297.1172 664.4111,325.2656 679.4111,325.2656 L689.4111,325.2656" fill="none" style="stroke:#181818;stroke-width:1;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="47.2227" x="692.4111" y="348.4092">?Suffix</text><path d="M639.4111,297.1172 L649.4111,297.1172 C664.4111,297.1172 664.4111,343.5625 679.4111,343.5625 L689.4111,343.5625" fill="none" style="stroke:#181818;stroke-width:1;"/><path d="M498.5283,649.6797 L508.5283,649.6797 C523.5283,649.6797 523.5283,297.1172 538.5283,297.1172 L548.5283,297.1172" fill="none" style="stroke:#181818;stroke-width:1;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="80.5752" x="551.5283" y="320.2607">$Dodavatel</text><path d="M498.5283,649.6797 L508.5283,649.6797 C523.5283,649.6797 523.5283,315.4141 538.5283,315.4141 L548.5283,315.4141" fill="none" style="stroke:#181818;stroke-width:1;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="119.4033" x="551.5283" y="366.7061">Datum vystavení</text><path d="M498.5283,649.6797 L508.5283,649.6797 C523.5283,649.6797 523.5283,361.8594 538.5283,361.8594 L548.5283,361.8594" fill="none" style="stroke:#181818;stroke-width:1;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="62.1113" x="551.5283" y="385.0029">$Položky</text><path d="M498.5283,649.6797 L508.5283,649.6797 C523.5283,649.6797 523.5283,380.1563 538.5283,380.1563 L548.5283,380.1563" fill="none" style="stroke:#181818;stroke-width:1;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="78.6406" x="551.5283" y="403.2998">$Odběratel</text><path d="M498.5283,649.6797 L508.5283,649.6797 C523.5283,649.6797 523.5283,398.4531 538.5283,398.4531 L548.5283,398.4531" fill="none" style="stroke:#181818;stroke-width:1;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="125.1455" x="551.5283" y="421.5967">Rekapitulace DPH</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="76.4805" x="729.6738" y="394.1514">Sazba DPH</text><path d="M676.6738,416.75 L686.6738,416.75 C701.6738,416.75 701.6738,389.3047 716.6738,389.3047 L726.6738,389.3047" fill="none" style="stroke:#181818;stroke-width:1;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="47.6328" x="729.6738" y="412.4482">Základ</text><path d="M676.6738,416.75 L686.6738,416.75 C701.6738,416.75 701.6738,407.6016 716.6738,407.6016 L726.6738,407.6016" fill="none" style="stroke:#181818;stroke-width:1;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="29.75" x="729.6738" y="430.7451">DPH</text><path d="M676.6738,416.75 L686.6738,416.75 C701.6738,416.75 701.6738,425.8984 716.6738,425.8984 L726.6738,425.8984" fill="none" style="stroke:#181818;stroke-width:1;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="52.6367" x="729.6738" y="449.042">Celkem</text><path d="M676.6738,416.75 L686.6738,416.75 C701.6738,416.75 701.6738,444.1953 716.6738,444.1953 L726.6738,444.1953" fill="none" style="stroke:#181818;stroke-width:1;"/><path d="M498.5283,649.6797 L508.5283,649.6797 C523.5283,649.6797 523.5283,416.75 538.5283,416.75 L548.5283,416.75" fill="none" style="stroke:#181818;stroke-width:1;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="99.9551" x="551.5283" y="485.6357">Platební údaje</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="120.8184" x="704.4834" y="467.3389">Variabilní symbol</text><path d="M651.4834,480.7891 L661.4834,480.7891 C676.4834,480.7891 676.4834,462.4922 691.4834,462.4922 L701.4834,462.4922" fill="none" style="stroke:#181818;stroke-width:1;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="105.7998" x="704.4834" y="485.6357">Způsob úhrady</text><path d="M651.4834,480.7891 L661.4834,480.7891 C676.4834,480.7891 676.4834,480.7891 691.4834,480.7891 L701.4834,480.7891" fill="none" style="stroke:#181818;stroke-width:1;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="50.7568" x="704.4834" y="503.9326">QR kód</text><path d="M651.4834,480.7891 L661.4834,480.7891 C676.4834,480.7891 676.4834,499.0859 691.4834,499.0859 L701.4834,499.0859" fill="none" style="stroke:#181818;stroke-width:1;"/><path d="M498.5283,649.6797 L508.5283,649.6797 C523.5283,649.6797 523.5283,480.7891 538.5283,480.7891 L548.5283,480.7891" fill="none" style="stroke:#181818;stroke-width:1;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="48.125" x="551.5283" y="531.3779">Součet</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="38.1445" x="652.6533" y="522.2295">Měna</text><path d="M599.6533,526.5313 L609.6533,526.5313 C624.6533,526.5313 624.6533,517.3828 639.6533,517.3828 L649.6533,517.3828" fill="none" style="stroke:#181818;stroke-width:1;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="47.8242" x="652.6533" y="540.5264">Částka</text><path d="M599.6533,526.5313 L609.6533,526.5313 C624.6533,526.5313 624.6533,535.6797 639.6533,535.6797 L649.6533,535.6797" fill="none" style="stroke:#181818;stroke-width:1;"/><path d="M498.5283,649.6797 L508.5283,649.6797 C523.5283,649.6797 523.5283,526.5313 538.5283,526.5313 L548.5283,526.5313" fill="none" style="stroke:#181818;stroke-width:1;"/><rect fill="#FFA500" height="36.2969" rx="12.5" ry="12.5" style="stroke:#181818;stroke-width:1.5;" width="51.7256" x="548.5283" y="545.6797"/><text fill="#010101" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="27.2754" x="558.5283" y="568.6748">PDF</text><path d="M498.5283,649.6797 L508.5283,649.6797 C523.5283,649.6797 523.5283,563.8281 538.5283,563.8281 L548.5283,563.8281" fill="none" style="stroke:#181818;stroke-width:1;"/><rect fill="#FFA500" height="36.2969" rx="12.5" ry="12.5" style="stroke:#181818;stroke-width:1.5;" width="76.1709" x="548.5283" y="601.9766"/><text fill="#010101" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="51.7207" x="558.5283" y="624.9717">Uhradit</text><path d="M498.5283,649.6797 L508.5283,649.6797 C523.5283,649.6797 523.5283,620.125 538.5283,620.125 L548.5283,620.125" fill="none" style="stroke:#181818;stroke-width:1;"/><rect fill="#FFA500" height="36.2969" rx="12.5" ry="12.5" style="stroke:#181818;stroke-width:1.5;" width="75.583" x="548.5283" y="658.2734"/><text fill="#010101" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="51.1328" x="558.5283" y="681.2686">Upravit</text><path d="M498.5283,649.6797 L508.5283,649.6797 C523.5283,649.6797 523.5283,676.4219 538.5283,676.4219 L548.5283,676.4219" fill="none" style="stroke:#181818;stroke-width:1;"/><rect fill="#FFA500" height="36.2969" rx="12.5" ry="12.5" style="stroke:#181818;stroke-width:1.5;" width="149.7461" x="548.5283" y="714.5703"/><text fill="#010101" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="125.2959" x="558.5283" y="737.5654">Kopírovat položky</text><path d="M498.5283,649.6797 L508.5283,649.6797 C523.5283,649.6797 523.5283,732.7188 538.5283,732.7188 L548.5283,732.7188" fill="none" style="stroke:#181818;stroke-width:1;"/><rect fill="#F1F1F1" height="36.2969" rx="12.5" ry="12.5" style="stroke:#181818;stroke-width:1.5;" width="89.7334" x="548.5283" y="788.4609"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="69.7334" x="558.5283" y="811.4561">Odběratel</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="43.8184" x="691.2617" y="774.8623">Jméno</text><path d="M638.2617,806.6094 L648.2617,806.6094 C663.2617,806.6094 663.2617,770.0156 678.2617,770.0156 L688.2617,770.0156" fill="none" style="stroke:#181818;stroke-width:1;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="79.5635" x="691.2617" y="793.1592">?Poznámka</text><path d="M638.2617,806.6094 L648.2617,806.6094 C663.2617,806.6094 663.2617,788.3125 678.2617,788.3125 L688.2617,788.3125" fill="none" style="stroke:#181818;stroke-width:1;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="56.1367" x="691.2617" y="811.4561">?Adresa</text><path d="M638.2617,806.6094 L648.2617,806.6094 C663.2617,806.6094 663.2617,806.6094 678.2617,806.6094 L688.2617,806.6094" fill="none" style="stroke:#181818;stroke-width:1;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="21.335" x="691.2617" y="829.7529">?IČ</text><path d="M638.2617,806.6094 L648.2617,806.6094 C663.2617,806.6094 663.2617,824.9063 678.2617,824.9063 L688.2617,824.9063" fill="none" style="stroke:#181818;stroke-width:1;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="32.1152" x="691.2617" y="848.0498">?DIČ</text><path d="M638.2617,806.6094 L648.2617,806.6094 C663.2617,806.6094 663.2617,843.2031 678.2617,843.2031 L688.2617,843.2031" fill="none" style="stroke:#181818;stroke-width:1;"/><path d="M498.5283,649.6797 L508.5283,649.6797 C523.5283,649.6797 523.5283,806.6094 538.5283,806.6094 L548.5283,806.6094" fill="none" style="stroke:#181818;stroke-width:1;"/><rect fill="#F1F1F1" height="36.2969" rx="12.5" ry="12.5" style="stroke:#181818;stroke-width:1.5;" width="73.2041" x="548.5283" y="959.8164"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="53.2041" x="558.5283" y="982.8115">Položky</text><rect fill="#FFA500" height="36.2969" rx="12.5" ry="12.5" style="stroke:#181818;stroke-width:1.5;" width="65.4932" x="671.7324" y="862.3516"/><text fill="#010101" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="41.043" x="681.7324" y="885.3467">Přidat</text><path d="M621.7324,977.9648 L631.7324,977.9648 C646.7324,977.9648 646.7324,880.5 661.7324,880.5 L671.7324,880.5" fill="none" style="stroke:#181818;stroke-width:1;"/><rect fill="#FFA500" height="36.2969" rx="12.5" ry="12.5" style="stroke:#181818;stroke-width:1.5;" width="81.6807" x="671.7324" y="918.6484"/><text fill="#010101" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="57.2305" x="681.7324" y="941.6436">Odebrat</text><path d="M621.7324,977.9648 L631.7324,977.9648 C646.7324,977.9648 646.7324,936.7969 661.7324,936.7969 L671.7324,936.7969" fill="none" style="stroke:#181818;stroke-width:1;"/><rect fill="#F1F1F1" height="36.2969" rx="12.5" ry="12.5" style="stroke:#181818;stroke-width:1.5;" width="73.498" x="671.7324" y="974.9453"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="53.498" x="681.7324" y="997.9404">Položka</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="101.4795" x="798.2305" y="896.6045">Pořadové číslo</text><path d="M745.2305,993.0938 L755.2305,993.0938 C770.2305,993.0938 770.2305,891.7578 785.2305,891.7578 L795.2305,891.7578" fill="none" style="stroke:#181818;stroke-width:1;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="43.2988" x="798.2305" y="914.9014">Název</text><path d="M745.2305,993.0938 L755.2305,993.0938 C770.2305,993.0938 770.2305,910.0547 785.2305,910.0547 L795.2305,910.0547" fill="none" style="stroke:#181818;stroke-width:1;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="61.8242" x="798.2305" y="933.1982">Množství</text><path d="M745.2305,993.0938 L755.2305,993.0938 C770.2305,993.0938 770.2305,928.3516 785.2305,928.3516 L795.2305,928.3516" fill="none" style="stroke:#181818;stroke-width:1;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="144.7646" x="798.2305" y="951.4951">Množstevní jednotka</text><path d="M745.2305,993.0938 L755.2305,993.0938 C770.2305,993.0938 770.2305,946.6484 785.2305,946.6484 L795.2305,946.6484" fill="none" style="stroke:#181818;stroke-width:1;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="116.3066" x="798.2305" y="969.792">Jednotková cena</text><path d="M745.2305,993.0938 L755.2305,993.0938 C770.2305,993.0938 770.2305,964.9453 785.2305,964.9453 L795.2305,964.9453" fill="none" style="stroke:#181818;stroke-width:1;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="94.0283" x="798.2305" y="988.0889">Celková cena</text><path d="M745.2305,993.0938 L755.2305,993.0938 C770.2305,993.0938 770.2305,983.2422 785.2305,983.2422 L795.2305,983.2422" fill="none" style="stroke:#181818;stroke-width:1;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="29.75" x="798.2305" y="1006.3857">DPH</text><path d="M745.2305,993.0938 L755.2305,993.0938 C770.2305,993.0938 770.2305,1001.5391 785.2305,1001.5391 L795.2305,1001.5391" fill="none" style="stroke:#181818;stroke-width:1;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="139.9727" x="798.2305" y="1024.6826">Celková cena s DPH</text><path d="M745.2305,993.0938 L755.2305,993.0938 C770.2305,993.0938 770.2305,1019.8359 785.2305,1019.8359 L795.2305,1019.8359" fill="none" style="stroke:#181818;stroke-width:1;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="38.1445" x="798.2305" y="1042.9795">Měna</text><path d="M745.2305,993.0938 L755.2305,993.0938 C770.2305,993.0938 770.2305,1038.1328 785.2305,1038.1328 L795.2305,1038.1328" fill="none" style="stroke:#181818;stroke-width:1;"/><rect fill="#FFA500" height="36.2969" rx="12.5" ry="12.5" style="stroke:#181818;stroke-width:1.5;" width="75.583" x="795.2305" y="1057.2813"/><text fill="#010101" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="51.1328" x="805.2305" y="1080.2764">Upravit</text><path d="M745.2305,993.0938 L755.2305,993.0938 C770.2305,993.0938 770.2305,1075.4297 785.2305,1075.4297 L795.2305,1075.4297" fill="none" style="stroke:#181818;stroke-width:1;"/><path d="M621.7324,977.9648 L631.7324,977.9648 C646.7324,977.9648 646.7324,993.0938 661.7324,993.0938 L671.7324,993.0938" fill="none" style="stroke:#181818;stroke-width:1;"/><path d="M498.5283,649.6797 L508.5283,649.6797 C523.5283,649.6797 523.5283,977.9648 538.5283,977.9648 L548.5283,977.9648" fill="none" style="stroke:#181818;stroke-width:1;"/><path d="M375.0918,649.6797 L385.0918,649.6797 C400.0918,649.6797 400.0918,649.6797 415.0918,649.6797 L425.0918,649.6797" fill="none" style="stroke:#181818;stroke-width:1;"/><path d="M251.9492,556.7891 L261.9492,556.7891 C276.9492,556.7891 276.9492,649.6797 291.9492,649.6797 L301.9492,649.6797" fill="none" style="stroke:#181818;stroke-width:1;"/><path d="M110.2813,556.7891 L120.2813,556.7891 C135.2813,556.7891 135.2813,556.7891 150.2813,556.7891 L160.2813,556.7891" fill="none" style="stroke:#181818;stroke-width:1;"/></g></svg></div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.instant", "navigation.instant.progress", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "toc.follow", "navigation.top", "search.suggest", "content.code.copy", "content.code.select"], "search": "../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+        <script src="../assets/javascripts/panzoom.min.js"></script>
+      
+        <script src="../assets/javascripts/zoompan.js"></script>
+      
+        <script src="../assets/mkdocs_puml/puml.js"></script>
+      
+        <script src="https://unpkg.com/@panzoom/panzoom@4.5.1/dist/panzoom.min.js"></script>
+      
+        <script src="../assets/mkdocs_puml/interaction.js"></script>
+      
+    
+  </body>
+</html>
